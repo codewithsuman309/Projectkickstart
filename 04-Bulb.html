@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulb On-Off</title>
+</head>
+
+<style>
+
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+
+    body{
+        background:linear-gradient(rgb(146, 132, 132),white);
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        place-content: center;
+    }
+
+    div{
+                background-color: rgb(62, 225, 62);
+                width: 350px;
+                text-align: center;
+                border-radius: 20px;
+            }
+            img{
+                width: 100%;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+            }
+            button {
+                width: 80%;
+                background: linear-gradient(green,lightgreen);
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                height: 40px;
+                font-size: 20px;
+                margin: 5px;
+                border-radius: 5px;
+            }
+
+</style>
+
+<div>
+    <img src="04-bulboff.jpeg" id="bulb">
+    <button onclick="change()" id="btn"><b>Turn On</b></button>
+</div>
+
+<script>
+    let bulb = document.getElementById('bulb');
+            let btn = document.getElementById('btn');
+            const audio = new Audio('04-sound.mp3');
+            let light = false;
+
+            function change () {
+                audio.play();
+
+                if(light==false) {
+                    bulb.setAttribute("src", "04-bulbon.jpeg");
+                    light = true;
+                    btn.innerHTML = "Turn Off";
+                }
+                else {
+                    bulb.setAttribute("src", "04-bulboff.jpeg");
+                    light = false;
+                    btn.innerHTML = "Turn On";
+                }}
+</script>
+<body>
+    
+</body>
+</html>
