@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinner</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(6, 6, 61);
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+            place-content: center;
+        }
+
+
+
+        div {
+            background-color: white;
+            width: 350px;
+            padding: 50px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 4px 3px 2px blue;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: spin(0deg);
+            }
+
+            100% {
+                transform: spin(360deg);
+            }
+        }
+
+        img {
+            width: 200px;
+
+            margin-bottom: 40px;
+
+        }
+
+        .active {
+            animation: spin 0.3s linear infinite;
+        }
+
+        button {
+            padding: 10px;
+            width: 100px;
+            background: linear-gradient(green, rgb(179, 213, 179));
+            border-radius: 5px;
+            font-size: 17px;
+            color: aliceblue;
+            box-shadow: 2px 2px 2px green;
+            cursor: pointer;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="05-spinner.jpeg" id="spinner" alt="spinner">
+        <button onclick="control()" id="btn"><b>START</b></button>
+
+    </div>
+
+    <script>
+        let spinner = document.getElementById('spinner');
+        let btn = document.getElementById('btn');
+        const audio = new Audio('05-sound.mp3');
+        let status = false;
+
+        function control() {
+            if (!status) {
+                spinner.setAttribute('class', 'active');
+                status = true;
+                btn.innerHTML = "STOP";
+                audio.play();   // start sound
+            } else {
+                spinner.removeAttribute('class');
+                status = false;
+                btn.innerHTML = "START";
+                audio.pause();          // stop sound
+                audio.currentTime = 0;  // reset sound position
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
