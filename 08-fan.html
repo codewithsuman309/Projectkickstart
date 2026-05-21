@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automatic Fan</title>
+
+<style>
+    *{
+        padding: 0px;
+        margin: 0px;
+        
+    }
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(lightblue,aqua,rgb(90, 90, 215));
+}
+
+
+.fan-container{
+    position:relative;
+    width:300px;
+    height:500px;
+}
+
+.stand{
+    position:absolute;
+    bottom:70px;
+    left:145px;
+    width:10px;
+    height:220px;
+    background:white;
+    border:2px solid #ccc;
+}
+
+.pipe{
+    position:absolute;
+    bottom:290px;
+    left:146px;
+    width:8px;
+    height:60px;
+    background:silver;
+}
+
+
+.base{
+    position:absolute;
+    bottom:0;
+    left:75px;
+    width:150px;
+    height:70px;
+    background:white;
+    border-radius:50%;
+    border:2px solid #ccc;
+    box-shadow:0 5px 10px rgba(0,0,0,0.2);
+}
+
+
+.fan{
+    position:absolute;
+    top:60px;
+    left:70px;
+    width:160px;
+    height:160px;
+
+    animation:rotateFan 0.1s linear infinite;
+}
+
+.blade{
+    position:absolute;
+    width:90px;
+    height:130px;
+    background:rgba(0,120,255,0.5);
+    border-radius:50% 50% 40% 40%;
+    left:35px;
+    top:15px;
+    transform-origin:50% 85%;
+}
+
+.blade:nth-child(1){
+    transform:rotate(0deg);
+}
+
+.blade:nth-child(2){
+    transform:rotate(120deg);
+}
+
+.blade:nth-child(3){
+    transform:rotate(240deg);
+}
+
+
+.center{
+    position:absolute;
+    width:28px;
+    height:28px;
+    background:#0066ff;
+    border-radius:50%;
+    top:66px;
+    left:66px;
+    z-index:10;
+}
+
+
+@keyframes rotateFan{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="fan-container">
+
+    <div class="fan">
+        <div class="blade"></div>
+        <div class="blade"></div>
+        <div class="blade"></div>
+        <div class="center"></div>
+    </div>
+
+    <div class="pipe"></div>
+    <div class="stand"></div>
+    <div class="base"></div>
+
+</div>
+
+</body>
+</html>
